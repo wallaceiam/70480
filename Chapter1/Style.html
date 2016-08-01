@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        img {
+            height: 150px;
+            width: 225px;
+        }
+
+        .rota {
+            transform: rotate(90deg);
+        }
+        .scale {
+            transform: scale(1.5);
+        }
+        .skew {
+            transform: skew(10deg, 10deg);
+        }
+        .trans {
+            transform: translate(50px, 0);
+        }
+
+        .outerDiv {
+            width: 100%;
+            /*height: 200px;*/
+            background-color: blue;
+        }
+
+        .innerDiv {
+            width: 150px;
+            height: 150px;
+            background-color: crimson;
+            border: 1px solid black;
+            /*float: left;*/
+            
+        }
+
+        .highlight {
+            background-color: forestgreen;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById("btnPosition").onclick = function () {
+                var img = document.getElementById("orange2");
+                img.style.position = document.getElementById("positioning").value;
+                img.style.left = document.getElementById("leftText").value + "px";
+                img.style.top = document.getElementById("topText").value + "px";
+            }
+            document.getElementById("rota").onclick = function () {
+                if (this.classList.contains("rota"))
+                    this.classList.remove("rota");
+                else
+                    this.classList.add("rota");
+            }
+            document.getElementById("trans").onclick = function () {
+                if (this.classList.contains("trans"))
+                    this.classList.remove("trans");
+                else
+                    this.classList.add("trans");
+            }
+            document.getElementById("scale").onclick = function () {
+                if (this.classList.contains("scale"))
+                    this.classList.remove("scale");
+                else
+                    this.classList.add("scale");
+            }
+            document.getElementById("skew").onclick = function () {
+                if (this.classList.contains("skew"))
+                    this.classList.remove("skew");
+                else
+                    this.classList.add("skew");
+            }
+            document.getElementById("btnDisInitial").onclick = function () {
+                document.getElementById("affectme").style.display = "block";
+            }
+            document.getElementById("btnDisInline").onclick = function () {
+                document.getElementById("affectme").style.display = "inline";
+            }
+            document.getElementById("btnDisNone").onclick = function () {
+                document.getElementById("affectme").style.display = "none";
+            }
+            document.getElementById("btnVisVisible").onclick = function () {
+                document.getElementById("affectme").style.visibility = "visible";
+            }
+            document.getElementById("btnVisHidden").onclick = function () {
+                document.getElementById("affectme").style.visibility = "hidden";
+            }
+            document.getElementById("btnVisCollapse").onclick = function () {
+                document.getElementById("affectme").style.visibility = "collapse";
+            }
+        }
+    </script>
+</head>
+<body>
+    <section>
+        <header>
+            <h2>Positioning</h2>
+        </header>
+        <table style="width: 100%; height: 100%; border: 1px solid black">
+            <tr>
+                <td style="vertical-align: top; width: 80%">
+                    <img id="orange1" src="sample.jpg" />
+                    <img id="orange2" src="sample.jpg" />
+                </td>
+                <td style="vertical-align:top;">
+                    Left: <input type="text" id="leftText" /><br />
+                    Top: <input type="text" id="topText" /><br />
+                    Position: <select id="positioning">
+                        <option>relative</option>
+                        <option>absolute</option>
+                    </select><br />
+                    <input type="button" id="btnPosition" value="Update" />
+
+                </td>
+            </tr>
+        </table>
+    </section>
+    <section>
+        <header>
+            <h2>Transforms</h2>
+        </header>
+        <h3>Rotate</h3>
+        <img src="sample.jpg" id="rota" />
+        <h3>Transform</h3>
+        <img src="sample.jpg" id="trans" />
+        <h3>Scale</h3>
+        <img src="sample.jpg" id="scale" />
+        <h3>Skew</h3>
+        <img src="sample.jpg" id="skew" />
+    </section>
+    <section>
+        <header>
+            <h2>Display v Visibily</h2>
+        </header>
+        <div class="outerDiv">
+            <div class="innerDiv" ></div>
+            <div class="innerDiv" ></div>
+            <div id="affectme" class="innerDiv highlight" ></div>
+            <div class="innerDiv" ></div>
+            <div class="innerDiv" ></div>
+        </div>
+        <input type="button" id="btnDisInitial" value="display: initial" />
+        <input type="button" id="btnDisInline" value="display: inline" />
+        <input type="button" id="btnDisNone" value="display: none" />
+        <input type="button" id="btnVisVisible" value="visibily: visible" />
+        <input type="button" id="btnVisHidden" value="visibily: hidden" />
+        <input type="button" id="btnVisCollapse" value="visibily: collapse" />
+
+    </section>
+</body>
+</html>
